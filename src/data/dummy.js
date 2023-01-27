@@ -1,9 +1,11 @@
 import React from 'react';
 import { AiFillCreditCard } from 'react-icons/ai';
-import {  FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiLayout } from 'react-icons/fi';
+import {  FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
 import { BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsPersonCircle, BsTag } from 'react-icons/bs';
-import { MdOutlineSupervisorAccount } from 'react-icons/md';
-import { HiOutlineRefresh } from 'react-icons/hi';
+import { MdOutlineSupervisorAccount , MdHomeFilled} from 'react-icons/md';
+import {BiCalendar} from 'react-icons/bi';
+import {SiHandshake} from 'react-icons/si'
+import { HiOutlineRefresh,HiDocumentReport } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GrLocation } from 'react-icons/gr';
 import avatar from './avatar.jpg';
@@ -155,26 +157,34 @@ export const employeesGrid = [
     width: '125',
     textAlign: 'Center' },
 ];
+export const homelink =[
+  {
+    title: 'home',
+    links:[
+    {name: 'accueil',
+    icon: <MdHomeFilled/>}]
+  }
 
+]
 export const links = [
   {
-    title: 'Quick Menu',
+    title: 'gestion',
     links: [
       {
-        name: 'overview',
-        icon: <FiLayout />,
+        name: 'CP',
+        icon: <SiHandshake/>,
       },
       {
-        name: 'customers',
-        icon: <BsPersonCircle/>,
+        name: 'EDT',
+        icon: <BiCalendar/>,
       },
       {
-        name: 'defaulters',
-        icon: <AiFillCreditCard />,
+        name: 'Enseignement',
+        icon: <HiDocumentReport />,
       },
       {
-        name: 'fulfilments',
-        icon: <BsTag />,
+        name: 'délibiration',
+        icon: <HiDocumentReport />,
       },
     ],
   },
@@ -470,24 +480,24 @@ export const customersData = () => {
   const data = [
   {
     customerID: 1001,
-    customer: 'Nirav Joshi',
+    customer: '001',
     CustomerEmail: 'nirav@gmail.com',
     imgUrl:
       avatar2,
-    deposit: 'NGN 34,600',
+    deposit: '1cs',
     date: 'Jan 6, 2022 09:21',
-    voucherNo: '00437E',
-    status: 'Successful',
+    voucherNo: '1',
+    status: 'cloturé',
     selected: false,
     customerNumber: "+234 803 0000",
   },
   {
     CustomerID: 1002,
-    customer: 'Sunil Joshi',
-    deposit: 'NGN 34,600',
+    customer: '002',
+    deposit: '1cs',
     date: 'Jan 6, 2022 09:21',
-    voucherNo: '00437E',
-    status: 'Successful',
+    voucherNo: '2',
+    status: 'cloturé',
     CustomerEmail: 'sunil@gmail.com',
     Status: 'Active',
     imgUrl:
@@ -497,11 +507,11 @@ export const customersData = () => {
   },
   {
     CustomerID: 1003,
-    customer:'Andrew McDownland',
-    deposit: 'NGN 34,600',
+    customer:'003',
+    deposit: '2cs',
     date: 'Jan 6, 2022 09:21',
-    voucherNo: '00437E',
-    status: 'Failed',
+    voucherNo: '1',
+    status: 'annulé',
     CustomerEmail: 'andrew@gmail.com',
     imgUrl:
       avatar4,
@@ -509,11 +519,11 @@ export const customersData = () => {
   },
   {
     CustomerID: 1004,
-    customer:'Christopher Jamil',
-    deposit: 'NGN 34,600',
+    customer:'004',
+    deposit: '2cs',
     date: 'Jan 6, 2022 09:21',
-    voucherNo: '00437E',
-    status: 'Successful',
+    voucherNo: '1',
+    status: 'cloturé',
     CustomerEmail: 'jamil@gmail.com',
     imgUrl:
       avatar,
@@ -521,11 +531,11 @@ export const customersData = () => {
   },
   {
     CustomerID: 1005,
-    customer:'Andrew McDownland',
+    customer:'005',
     deposit: 'NGN 34,600',
     date: 'Jan 6, 2022 09:21',
     voucherNo: '00437E',
-    status: 'Successful',
+    status: 'annulé',
     CustomerName: 'Michael',
     customerEmail: 'michael@gmail.com',
    imgUrl:

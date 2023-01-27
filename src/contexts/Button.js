@@ -22,7 +22,7 @@ export function PageButton({ children, className, ...rest }) {
     <button
       type="button"
       className={classNames(
-        "relative inline-flex items-center justify-center px-2 py-2 active:bg-gray-500 active:border-gray-300 text-sm font-medium text-gray-500 hover:bg-gray-50",
+        "relative inline-flex items-center justify-center px-2 py-2 active:text-white active:bg-myred active:border-myblue text-sm font-medium text-gray-500 hover:bg-gray-50",
         className
       )}
       {...rest}

@@ -22,21 +22,21 @@ import {DOTS, useCustomPagination} from './useCustomPagination';
     }, 200)
   
     return (
-      <span className='flex justify-between  pt-10 pb-10 '>
-       <GrFormSearch fontSize={38} color='gray' className='absolute text-center text-gray-500 mt-3 ml-3 min-w-40'/>
+      <span className='flex justify-between  -pt-6 pb-7 '>
+       {/* <GrFormSearch fontSize={30} color='gray' className='absolute text-center text-gray-500 mt-3 ml-3 min-w-40'/> */}
         <input
           value={value || ""}
           onChange={e => {
             setValue(e.target.value);
             onChange(e.target.value);
           }}
-          className='w-8/12 rounded-xl border p-4 text-gray-500 cursor-pointer' 
+          className='w-4/12 h-10 rounded-xl text-sm border p-4 text-myblue cursor' 
           type="search"  
           placeholder={placeholder}
         />
          <button 
         className='bg-white rounded-xl p-4 border-1 cursor-pointer'>
-            Export
+            programmer
         </button>
       </span>
     )
@@ -49,9 +49,9 @@ export function StatusPill({ value }) {
     <span
       className={classNames(
         "px-3 py-1 uppercase leading-wide font-bold text-xs rounded-full shadow-sm",
-        status.startsWith("Successful") ? "bg-green-100 text-green-700" : null,
-        status.startsWith("Progressing") ? "bg-yellow-100 text-yellow-700" : null,
-        status.startsWith("Failed") ? "bg-red-100 text-red-700" : null
+        status.startsWith("cloturé") ? "bg-green-100 text-green-700" : null,
+        status.startsWith("en attente") ? "bg-yellow-100 text-yellow-700" : null,
+        status.startsWith("annulé") ? "bg-red-100 text-red-700" : null
       )}
     >
       {status}
@@ -59,25 +59,7 @@ export function StatusPill({ value }) {
   );
 }
 
-export function AvatarCell({ value, column, row }) {
-  return (
-    <div className="flex items-center">
-      <div className="flex-shrink-0 h-10 w-10">
-        <img
-          className="h-10 w-10 rounded-full"
-          src={row.original[column.imgAccessor]}
-          alt=""
-        />
-      </div>
-      <div className="ml-4">
-        <div className="text-sm font-medium text-gray-900">{value}</div>
-        <div className="text-sm text-gray-500">
-          {row.original[column.numAccessor]}
-        </div>
-      </div>
-    </div>
-  );
-}
+
 
 
 
@@ -88,14 +70,13 @@ const OverviewTable = ({placeholder}) => {
   
     const columns = useMemo(() => [
       {
-        Header: "Customer",
+        Header: "Id",
         accessor: "customer",
-        Cell: AvatarCell,
        imgAccessor: "imgUrl",
        numAccessor: "customerNumber",
       },
       {
-        Header: "Deposit",
+        Header: "Niveau",
         accessor: "deposit",
       },
       {
@@ -103,11 +84,11 @@ const OverviewTable = ({placeholder}) => {
         accessor: "date",
       },
       {
-        Header: "Voucher NO.",
+        Header: "Semestre",
         accessor: "voucherNo",
       },
       {
-        Header: "Trans.Status",
+        Header: "Status",
         accessor: "status",
         Cell: StatusPill,
       },
@@ -158,17 +139,17 @@ const OverviewTable = ({placeholder}) => {
         setGlobalFilter={setGlobalFilter}
         placeholder={placeholder}
          />
-         <div className="mt-2 flex flex-col">
-            <div className="-my-2 overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
+         <div className="-mt-3 flex flex-col">
+            <div className="-my-2 overflow-x-auto -mx-2 sm:-mx-6 lg:-mx-8">
               <div  className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                    <table {...getTableProps()} className="min-w-full divide-y divide-gray-200">
-                      <thead className="bg-gray-10">
+                <div className=" overflow-hidden  sm:rounded-lg">
+                    <table {...getTableProps()} className="min-w-full divide-y ">
+                      <thead className="">
                       {headerGroups.map((headerGroup) => (
                           <tr {...headerGroup.getHeaderGroupProps()}>
                               {headerGroup.headers.map((column) => (
                                   <th {...column.getHeaderProps()}
-                                  className="px-6 py-5 text-left text-20 font-medium text-gray-400 uppercase rounded-sm tracking-wider"
+                                  className="px-6 py-5 text-left text-sm  text-gray-400  rounded-sm tracking-wider"
                                   >
                                     {column.render("Header")}
                                     {column.id === 'selection' && column.render('Summary')}
@@ -184,7 +165,7 @@ const OverviewTable = ({placeholder}) => {
                       return (
                           <tr {...row.getRowProps()}>
                           {row.cells.map((cell) => {
-                              return <td {...cell.getCellProps()} className="px-6 py-10 whitespace-nowrap">{cell.render("Cell")}</td>
+                              return <td {...cell.getCellProps()} className="px-6 py-5 whitespace-nowrap text-xs">{cell.render("Cell")}</td>
                           })}
                           </tr>
                       );
@@ -215,7 +196,7 @@ const OverviewTable = ({placeholder}) => {
                         return (
                             <PageButton
                                 key={index}
-                                className=' active:bg-gray-500 active:border-gray-300'
+                                className=' active:bg-myred active:border-gray-300'
                                 onClick={() => gotoPage(pageNumber - 1)}>{pageNumber}</PageButton>
                         );
                     }
@@ -223,7 +204,7 @@ const OverviewTable = ({placeholder}) => {
                     return (
                         <PageButton
                             key={index}
-                            className='active:bg-gray-500 active:border-gray-300'
+                            className='active:bg-myred active:border-gray-300'
                             onClick={() => gotoPage(pageNumber - 1)}>{pageNumber}</PageButton>
                     );
                 })}

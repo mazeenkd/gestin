@@ -43,33 +43,26 @@ const Navbar = () => {
     
       const handleActiveMenu = () => setActiveMenu(!activeMenu);
   return (
-    <div className="flex justify-between p-5 border-b-2 relative">
+    <div className="flex justify-between p-5 border-b-1 border-b-myblue relative">
         <div className='flex '>
         <NavButton title="Menu" customFunc={handleActiveMenu} icon={<AiOutlineMenu className='md:hidden lg:hidden sm:visible' />} />
         <div className='pl-5'>
-            <h1 className='font-normal text-xl '>Hello, Asabi</h1>
-            <p className='text-gray-400'>Here's what's going on with your account</p>
+            <h1 className='font-normal text-xl '>Chef de département</h1>
+            <p className='text-gray-400'>cycle superieur</p>
         </div>
         </div>
       <div className="flex">
-        <NavButton title="Notification" dotColor="rgb(255, 0, 0)"  icon={<RiNotification3Line fontSize={28} />} />
+        <NavButton title="Notification" dotColor="rgb(255, 0, 0)"  icon={<RiNotification3Line fontSize={22} />} />
         <div className='border-r-2 m-3'></div>
         <div>
           <div
-            className="flex items-center gap-2 pl-3 cursor-pointer p-1 hover:bg-light-gray rounded-lg"
+            className=" items-center gap-0 pl-3 cursor-pointer p-1 hover:bg-light-myred rounded-lg"
           >
-            <img
-              className="rounded-full  h-12 w-12 object-cover"
-              src="https://raw.githubusercontent.com/OloriAsabi/book-images/main/src/me/IMG-4060.JPG"
-              alt="user-profile"
-            />
-            <div>
-            <p className="text-black font-normal ml-1 flex gap-5">
-                Asabi
-                <MdKeyboardArrowDown fontSize={28} className="text-black" />
+            <div className='hover-light-myred'>
+            <p className="text-black mt-2 text-sm font-normal ml-1 flex gap-2">
+                Mr Farah Zoubeyr
+                <MdKeyboardArrowDown fontSize={22} className="text-black" />
             </p>
-          
-            <p className='text-gray-400'>Vendor ID: <span>395823</span></p>
             </div>
           </div>
         </div>

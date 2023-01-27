@@ -7,6 +7,10 @@ module.exports = {
       body: ['Open Sans', 'sans-serif'],
     },
     extend: {
+      colors:{
+        'myred': '#EF4B4C',
+        'myblue': '#3E619B',
+      },
       fontSize: {
         14: '14px',
       },

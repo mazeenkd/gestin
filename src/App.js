@@ -35,7 +35,7 @@ function App() {
               <Routes>
                 {/* dashboard  */}
                 <Route path="/" element={(<Overview />)} />
-                <Route path="/overview" element={(<Overview/>)} />
+                <Route path="/CP" element={(<Overview/>)} />
 
                 <Route path="/customers" element={(<Customers/>)} />
                 <Route path="/defaulters" element={(<Defaulters/>)} />

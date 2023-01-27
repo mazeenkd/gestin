@@ -5,9 +5,8 @@ import { OverviewTable, Title } from '../components'
 
 const Overview = () => {
   return (
-    <div className="m-2 md:m-10 mt-24 p-2 sm:pt-20 md:p-10 ">
-      <Title title="Overview" />
-
+    <div className="-mt-3 md:m-10 mt-18 p-0 sm:pt-20 md:p-10 bg-white rounded ">
+{/* 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6'>
         <div className='rounded w-full h-auto p-10 bg-white'>
             <RiSecurePaymentLine fontSize={38} className="bg-green-500 rounded-full p-2"/>
@@ -30,10 +29,10 @@ const Overview = () => {
                 <p className='font-normal text-3xl pt-3 text-black'>3,062</p>
             </div>
         </div>
-      </div>
+      </div> */}
 
     <div className="mt-4">
-        <OverviewTable placeholder="        Search for customer's name"/>
+        <OverviewTable placeholder="        rechercher"/>
     </div>
   </div>
   )
