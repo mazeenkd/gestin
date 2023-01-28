@@ -5,6 +5,10 @@ import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
 import { Navbar, Sidebar } from './components';
+import Infos from './pages/Infos';
+import CPgeneral from './pages/CPgeneral';
+import CPdivers from './pages/CPdivers';
+import CPenseign from './pages/CPenseign';
 
 function App() {
   const {  activeMenu } = useStateContext();
@@ -36,7 +40,10 @@ function App() {
                 {/* dashboard  */}
                 <Route path="/" element={(<Overview />)} />
                 <Route path="/CP" element={(<Overview/>)} />
-
+                <Route path="/Infos" element={(<Infos/>)} />
+                <Route path="/enseignants" element={(<CPenseign/>)} />
+                <Route path="/divers" element={(<CPdivers/>)} />
+                <Route path="/general" element={(<CPgeneral/>)} />
                 <Route path="/customers" element={(<Customers/>)} />
                 <Route path="/defaulters" element={(<Defaulters/>)} />
                 <Route path="/fulfilments" element={(<Fulfilments/>)} />

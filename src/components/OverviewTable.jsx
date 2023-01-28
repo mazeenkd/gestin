@@ -5,24 +5,28 @@ import { useTable,
    usePagination, 
    useRowSelect} from "react-table";
 import { useRowSelectColumn } from '@lineup-lite/hooks';
+import { useNavigate } from "react-router-dom";
 import { customersData } from '../data/dummy';
 import { Button, PageButton } from '../contexts/Button'
 import { classNames } from '../contexts/utils';
 import { GrFormSearch } from 'react-icons/gr';
 import {DOTS, useCustomPagination} from './useCustomPagination';
 
+
+  
  export function GlobalFilter({
     globalFilter,
     setGlobalFilter,
     placeholder
   }) {
+    
     const [value, setValue] = useState(globalFilter)
     const onChange = useAsyncDebounce(value => {
       setGlobalFilter(value || undefined)
     }, 200)
   
     return (
-      <span className='flex justify-between  -pt-6 pb-7 '>
+      <span className='flex justify-between ml-60  -pt-6 pb-7 '>
        {/* <GrFormSearch fontSize={30} color='gray' className='absolute text-center text-gray-500 mt-3 ml-3 min-w-40'/> */}
         <input
           value={value || ""}
@@ -30,13 +34,13 @@ import {DOTS, useCustomPagination} from './useCustomPagination';
             setValue(e.target.value);
             onChange(e.target.value);
           }}
-          className='w-4/12 h-10 rounded-xl text-sm border p-4 text-myblue cursor' 
+          className='w-4/12 ml-auto mr-8 h-10 rounded-xl text-sm border p-2 text-myblue cursor' 
           type="search"  
           placeholder={placeholder}
         />
          <button 
-        className='bg-white rounded-xl p-4 border-1 cursor-pointer'>
-            programmer
+        className='text-white bg-myblue border-1 border-white hover:bg-white hover:text-myblue hover:border-1 hover:border-myblue font-medium rounded-lg text-xs px-5 py-2.5 mr-2 mb-2 cursor-pointer'>
+          programmer
         </button>
       </span>
     )
@@ -117,7 +121,7 @@ const OverviewTable = ({placeholder}) => {
             useGlobalFilter,
             usePagination, 
             useRowSelect,
-            useRowSelectColumn
+            // useRowSelectColumn
             );
             const {pageIndex} = state;
             const paginationRange = useCustomPagination({
@@ -130,7 +134,12 @@ const OverviewTable = ({placeholder}) => {
                   setPageSize(5);
             }, [setPageSize]);
             
-        
+            
+            const navigate = useNavigate();
+            
+            const handleRowClick = (row) => {
+            navigate(`/Infos`, {replace: true});
+            }  
   return (
     <div>
         <GlobalFilter
@@ -163,7 +172,7 @@ const OverviewTable = ({placeholder}) => {
                     {page.map((row, i) => {
                       prepareRow(row);
                       return (
-                          <tr {...row.getRowProps()}>
+                          <tr className='hover:bg-myblue hover:bg-opacity-30 cursor-pointer' {...row.getRowProps()} onClick={()=> handleRowClick(row)}>
                           {row.cells.map((cell) => {
                               return <td {...cell.getCellProps()} className="px-6 py-5 whitespace-nowrap text-xs">{cell.render("Cell")}</td>
                           })}

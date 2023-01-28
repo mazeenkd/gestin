@@ -6,6 +6,7 @@ import { OverviewTable, Title } from '../components'
 const Overview = () => {
   return (
     <div className="-mt-3 md:m-10 mt-18 p-0 sm:pt-20 md:p-10 bg-white rounded ">
+        <h3  className='text-l font-extrabold dark:text-white'>Proces verbal du Comité pédagogique</h3>
 {/* 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6'>
         <div className='rounded w-full h-auto p-10 bg-white'>
