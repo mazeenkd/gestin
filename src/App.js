@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import React from 'react';
-import { Customers, Defaulters, Fulfilments, Overview } from './pages';
+import {Overview } from './pages';
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -44,9 +44,7 @@ function App() {
                 <Route path="/enseignants" element={(<CPenseign/>)} />
                 <Route path="/divers" element={(<CPdivers/>)} />
                 <Route path="/general" element={(<CPgeneral/>)} />
-                <Route path="/customers" element={(<Customers/>)} />
-                <Route path="/defaulters" element={(<Defaulters/>)} />
-                <Route path="/fulfilments" element={(<Fulfilments/>)} />
+                
               </Routes>
             </div>
           </div>
