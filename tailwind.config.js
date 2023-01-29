@@ -10,6 +10,7 @@ module.exports = {
       colors:{
         'myred': '#EF4B4C',
         'myblue': '#3E619B',
+        'secondblue':'#42506B',
       },
       fontSize: {
         14: '14px',

@@ -1,6 +1,8 @@
 
 import React from 'react'
 import { useState } from 'react'
+import { Navbar, Sidebar } from '../components';
+import { useStateContext } from '../contexts/ContextProvider';
 
 const CPdivers = () => {
 
@@ -34,9 +36,29 @@ const CPdivers = () => {
         setFormFields(data)
       }
       const [isDisabled, setDisabled] = useState(false);
-   
+      const {  activeMenu } = useStateContext();
     return ( 
-
+<div className="flex relative dark:bg-main-dark-bg">
+      {activeMenu ? (
+              <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
+                <Sidebar />
+              </div>
+            ) : (
+              <div className="w-0 dark:bg-secondary-dark-bg">
+                <Sidebar />
+              </div>
+            )}
+               <div
+              className={
+                activeMenu
+                  ? 'dark:bg-main-dark-bg  bg-neutral-100 min-h-screen md:ml-72 w-full  '
+                  : 'bg-neutral-100 dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
+              }
+            >
+              <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+                <Navbar />
+              </div>
+              <div></div>
         <div className="-mt-3 md:m-10 h-8/9 mt-18  p-0 sm:pt-20 md:p-10 bg-white rounded ">
             <h3  className='text-l font-extrabold dark:text-white'>Proces verbal du Comité pédagogique</h3>
             <div className='my-10'>
@@ -77,7 +99,8 @@ const CPdivers = () => {
       <button onClick={submit} class="focus:outline-none text-white bg-myblue hover:bg-blue  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">cloturer</button>
       </div>
       </div>
-     
+      </div>
+      </div>
       
      );
 }

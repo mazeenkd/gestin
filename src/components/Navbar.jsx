@@ -3,6 +3,18 @@ import { RiNotification3Line } from 'react-icons/ri';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { useStateContext } from '../contexts/ContextProvider';
 import { MdKeyboardArrowDown } from 'react-icons/md';
+import {
+  Typography,
+  Button,
+  IconButton,
+  Breadcrumbs,
+  Input,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Avatar,
+} from "@material-tailwind/react";
 
 const NavButton = ({  icon, customFunc, dotColor }) => (
     <div>
@@ -59,10 +71,25 @@ const Navbar = () => {
             className=" items-center gap-0 pl-3 cursor-pointer p-1 hover:bg-light-myred rounded-lg"
           >
             <div className='hover-light-myred'>
+             <Menu>
+             <MenuHandler>
             <p className="text-black mt-2 text-sm font-normal ml-1 flex gap-2">
                 Mr Farah Zoubeyr
                 <MdKeyboardArrowDown fontSize={22} className="text-black" />
             </p>
+            </MenuHandler>
+            <MenuList className="w-max bg-white border-0">
+              <MenuItem className="flex items-center gap-3">
+              <button 
+        className='text-white bg-myblue border-1 border-whitefont-medium rounded-lg text-xs px-5 py-2.5 mr-2 mb-2 cursor-pointer'>
+          deconnecter
+        </button>
+                
+              </MenuItem>
+              
+              
+            </MenuList>
+            </Menu>
             </div>
           </div>
         </div>

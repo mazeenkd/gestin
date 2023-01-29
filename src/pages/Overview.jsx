@@ -1,12 +1,40 @@
 import React from 'react'
 import { RiExchangeDollarLine, RiFileList3Line, RiSecurePaymentLine } from 'react-icons/ri'
 import { OverviewTable, Title } from '../components'
+import { Navbar, Sidebar } from '../components';
+import { useStateContext } from '../contexts/ContextProvider';
+
 
 
 const Overview = () => {
+   
+        const {  activeMenu } = useStateContext();
   return (
+   
+    <div className="flex relative dark:bg-main-dark-bg">
+    {activeMenu ? (
+            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
+              <Sidebar />
+            </div>
+          ) : (
+            <div className="w-0 dark:bg-secondary-dark-bg">
+              <Sidebar />
+            </div>
+          )}
+             <div
+            className={
+              activeMenu
+                ? 'dark:bg-main-dark-bg  bg-neutral-100 min-h-screen md:ml-72 w-full  '
+                : 'bg-neutral-100 dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
+            }
+          >
+            <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
+              <Navbar />
+            </div>
+            <div>
     <div className="-mt-3 md:m-10 mt-18 p-0 sm:pt-20 md:p-10 bg-white rounded ">
-        <h3  className='text-l font-extrabold dark:text-white'>Proces verbal du Comité pédagogique</h3>
+        <h3  className='text-l font-extrabold dark:text-white'>Comités pédagogiques</h3>
+        <h6  className='ml-1 mt-1 text-xs font-medium dark:text-white'>deja existantes</h6>
 {/* 
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6'>
         <div className='rounded w-full h-auto p-10 bg-white'>
@@ -36,6 +64,9 @@ const Overview = () => {
         <OverviewTable placeholder="        rechercher"/>
     </div>
   </div>
+  </div>
+          </div>
+            </div>
   )
 }
 
