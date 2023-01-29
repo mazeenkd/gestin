@@ -37,6 +37,7 @@ const CPdivers = () => {
       }
       const [isDisabled, setDisabled] = useState(false);
       const {  activeMenu } = useStateContext();
+
     return ( 
 <div className="flex relative dark:bg-main-dark-bg">
       {activeMenu ? (
