@@ -11,8 +11,10 @@ import { Button, PageButton } from '../contexts/Button'
 import { classNames } from '../contexts/utils';
 import { GrFormSearch } from 'react-icons/gr';
 import {DOTS, useCustomPagination} from './useCustomPagination';
+import emailjs from '@emailjs/browser';
 
-
+var cpdate = document.getElementById("cpdate").value;
+    var cpheure = document.getElementById("cpheure").value;
   
  export function GlobalFilter({
     globalFilter,
@@ -30,6 +32,19 @@ import {DOTS, useCustomPagination} from './useCustomPagination';
       const handleChange = (e) => {
         setDate(e.target.value);
       };
+    
+    const form = useRef();
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs.sendForm('service_h8d5i3b', 'template_d4uiia9', form.current, '44PZY2c3Ka-fbS_83')
+        .then((result) => {
+            console.log(result.text);
+        }, (error) => {
+            console.log(error.text);
+        });
+        e.target.reset();
+    };
     return (
       <span className='flex justify-between ml-60  -pt-6 pb-7 '>
        {/* <GrFormSearch fontSize={30} color='gray' className='absolute text-center text-gray-500 mt-3 ml-3 min-w-40'/> */}
@@ -65,7 +80,7 @@ import {DOTS, useCustomPagination} from './useCustomPagination';
                   </button>
                 </div>
                 <div className="relative p-6 flex-auto">
-                  <form className="bg-white shadow-xs rounded px-8 pt-6 pb-8 w-full">
+                  <form ref={form} onSubmit={sendEmail} className="bg-white shadow-xs rounded px-8 pt-6 pb-8 w-full">
                     <label className="block my-2 text-black text-xs font-bold mb-1">
                       niveau
                     </label>
@@ -79,30 +94,29 @@ import {DOTS, useCustomPagination} from './useCustomPagination';
                     <label className="block  my-2 text-black text-xs font-bold mb-1" >
                       date
                     </label>
-                    <input type="date" className="shadow  my-2 appearance-none border outline-none rounded w-full py-2 px-1 text-black" onChange={handleChange} ref={dateInputRef} />
+                    <input type="date" id='cpdate' className="shadow  my-2 appearance-none border outline-none rounded w-full py-2 px-1 text-black" onChange={handleChange} ref={dateInputRef} />
                     <label className="block  my-2 text-black text-xs font-bold mb-1">
                       heure
                     </label>
-                    <input type="time" className="shadow  my-2 appearance-none border-1 border-black outline-none rounded w-full py-2 px-1 text-black" />
+                    <input type="time" id='cpheure' className="shadow  my-2 appearance-none border-1 border-black outline-none rounded w-full py-2 px-1 text-black" />
                     
-                  </form>
-                </div>
-                <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                  <button
-                    className="text-myred background-transparent font-bold uppercase px-6 py-2 text-xs outline-none focus:outline-none mr-1 mb-1"
+                    <button
+                    className="text-myred mr-4 background-transparent font-bold uppercase px-6 py-2 text-xs outline-none focus:outline-none mr-1 mb-1"
                     type="button"
                     onClick={() => setShowModal(false)}
                   >
                     annuler
                   </button>
                   <button
-                    className="text-white bg-myblue font-medium uppercase text-xs px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                    type="button"
+                    className="text-white ml-4 bg-myblue font-medium uppercase text-xs px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                    type="submit"
                     onClick={() => setShowModal(false)}
                   >
                     confirmer
                   </button>
+                  </form>
                 </div>
+                
               </div>
             </div>
           </div>

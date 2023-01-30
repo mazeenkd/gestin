@@ -10,7 +10,7 @@ import CPgeneral from './pages/CPgeneral';
 import CPdivers from './pages/CPdivers';
 import CPenseign from './pages/CPenseign';
 import LoginPage from './pages/LoginPage';
-
+import CPmodules from './pages/CPmodules';
 function App() {
 
   return (
@@ -18,9 +18,10 @@ function App() {
     <div>
               <Routes>
                 {/* dashboard  */}
-                <Route path="/" element={<LoginPage/>} />
-                <Route path="/CP" element={(<Overview/>)} />
+                {/* <Route path="/" element={<LoginPage/>} /> */}
+                <Route path="/" element={(<Overview/>)} />
                 <Route path="/Infos" element={(<Infos/>)} />
+                {/* <Route path="/modules" element={(<CPmodules/>)} /> */}
                 <Route path="/enseignants" element={(<CPenseign/>)} />
                 <Route path="/divers" element={(<CPdivers/>)} />
                 <Route path="/general" element={(<CPgeneral/>)} />
